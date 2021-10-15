@@ -68,11 +68,11 @@ addBranch_Template" [ngTemplateOutletContext]="{ $implicit: true }"></ng-contain
         <mat-list style="margin-bottom: 5px;">
             <mat-list-item *ngFor="let details of contactDetails" class="contact_list_seperator">
                 <!-- <div class="mat-list-text">s</div> -->
-                <div class="row">
-                    <div class="col-sm-2" style="padding-top: 7%;">
+                <div class="row" style="width: 100%;">
+                    <div class="col-sm-2" style="padding-top: 5%;">
                         <mat-checkbox [checked]="details.is_SMS"></mat-checkbox>
                     </div>
-                    <div class="col-sm-8">
+                    <div class="col-sm-8" style="padding-top: 3%;">
                         <div mat-line class='list-content'>{{details.name}}</div>
                         <div mat-line>
                             <span>{{details.mailid}} &nbsp;|&nbsp;</span>
@@ -82,7 +82,7 @@ addBranch_Template" [ngTemplateOutletContext]="{ $implicit: true }"></ng-contain
                             </span>
                         </div>
                     </div>
-                    <div class="col-sm-2" style="padding-top: 7%;float: right;">
+                    <div class="col-sm-2" style="padding-top: 5%;float: right;">
                         <mat-icon aria-hidden="false" class="mat_icon_color" aria-label="edit_icon">edit
                         </mat-icon>
                     </div>
