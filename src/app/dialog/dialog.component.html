@@ -2,9 +2,14 @@
     <mat-icon class="close-icon" color="warn">close</mat-icon>
 </button>
 
-<ng-container [ngTemplateOutlet]="false ? createContact_Template : deleveryAddress_Template"
-    [ngTemplateOutletContext]="{ $implicit: true }"></ng-container>
+<!-- <ng-container [ngTemplateOutlet]="createContact_Template ? createContact_Template : 
+    (deliveryAddress_Template ? deliveryAddress_Template : 
+    (contactList_Template ? contactList_Template : addBranch_Template))"
+    [ngTemplateOutletContext]="{ $implicit: true }"></ng-container> -->
 
+<ng-container [ngTemplateOutlet]="false ? createContact_Template : 
+    deliveryAddress_Template"
+    [ngTemplateOutletContext]="{ $implicit: true }"></ng-container>
 
 <ng-template #createContact_Template>
     <h1 mat-dialog-title>CREATE CONTACT</h1>
@@ -48,7 +53,7 @@
         this dialog here</a>
 </ng-template>
 
-<ng-template #deleveryAddress_Template>
+<ng-template #deliveryAddress_Template>
     <h1 mat-dialog-title>DELEVERY ADDRESS DETAILS</h1>
     <div mat-dialog-content>
         <p class="marker">*Required Fields</p>

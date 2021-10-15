@@ -77,12 +77,12 @@ export class AppComponent {
     // this.openDialog();
   }
 
-  openDialog(): void {
-    let templateName: string = 'createContact_Template';
+  openDialog(tempName?:string): void {
+    // let templateName: string = 'createContact_Template';
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '40%',
       data: {
-        templateName: templateName,
+        templateName: tempName,
         name: this.name,
         animal: this.animal,
       },
