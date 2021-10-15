@@ -55,7 +55,12 @@ export class DialogComponent {
     this.dialogRef.close();
   }
 
-  createContact(): void {
+  create() {
+    debugger
+    this.dialogRef.close("data from dialog to parent comp");
+  }
+
+  createChildContact(): void {
     const dialogRef = this.dialog.open(childDialogComponent, {
       width: "40%",
       data: {
