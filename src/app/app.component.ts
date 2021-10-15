@@ -74,15 +74,15 @@ export class AppComponent {
   constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.openDialog();
+    // this.openDialog();
   }
 
-  openDialog(): void {
-    let templateName: string = 'createContact_Template';
+  openDialog(tempName?: string): void {
+    // let templateName: string = 'createContact_Template';
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '40%',
       data: {
-        templateName: templateName,
+        templateName: tempName,
         name: this.name,
         animal: this.animal,
       },

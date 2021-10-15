@@ -22,6 +22,20 @@
   overflow: unset;
 }
 
+::-webkit-scrollbar {
+  width: 5px; /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #cfd0d380 0% 0% no-repeat padding-box;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #77889380 0% 0% no-repeat padding-box;
+  border: 2px solid #77889380;
+  border-radius: 10px;
+}
+
 body {
   color: #495a64;
   h1 {
@@ -100,63 +114,49 @@ body {
 }
 
 // Add Branch Class
-.sub_header {
-  color: #495a64;
-  font-size: 17px;
-  margin-bottom: 15px;
-}
+#addBranch {
+  .sub_header {
+    color: #495a64;
+    font-size: 17px;
+    margin-bottom: 15px;
+  }
 
-.panel_header {
-  margin-top: 20px;
-  margin-bottom: 0px;
-  color: #495a64;
-  font-size: 16px;
-  font-weight: 600;
+  .panel_header {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    color: #495a64;
+    font-size: 16px;
+    font-weight: 600;
 
-  mat-chip-list {
-    display: inline-block;
-    mat-chip {
-      min-height: 20px;
-      font-size: 11px;
-      padding: 10px;
-      background: #495a64 !important;
-      border-radius: 5px;
+    mat-chip-list {
+      display: inline-block;
+      mat-chip {
+        min-height: 20px;
+        font-size: 11px;
+        padding: 10px;
+        background: #495a64 !important;
+        border-radius: 5px;
+      }
     }
   }
-}
 
-.branch_container {
-  .col {
-    p {
-      font-size: 12px;
-      margin: 0px;
+  .branch_container {
+    .col {
+      p {
+        font-size: 12px;
+        margin: 0px;
+      }
+    }
+    .col_header {
+      color: #495a64;
+      font-size: 14px !important;
+      font-weight: 600;
+      margin: 5px 0px;
     }
   }
-  .col_header {
-    color: #495a64;
-    font-size: 14px !important;
-    font-weight: 600;
-    margin: 5px 0px;
+
+  .mat-dialog-container {
+    height: 90vh;
   }
 }
 
-.mat-dialog-container {
-  height: 90vh;
-}
-
-.footer {
-  margin-top: 20px;
-  .cancel {
-    background: lightgray;
-    color: #495a64;
-    width: 120px;
-    font-weight: 600;
-  }
-  .add {
-    float: right;
-    background: darkblue;
-    color: white;
-    width: 120px;
-    font-weight: 600;
-  }
-}

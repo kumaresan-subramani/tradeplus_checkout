@@ -108,7 +108,7 @@
       <div class="form-container">
         <div class='choose-address-title'>Choose an address from the list below or select Add Address <a
             style="justify-content:right">
-            <span (click)="openDialog()">Add Address</span></a></div>
+            <span (click)="openDialog('deliveryAddress_Template')">Add Address</span></a></div>
         <div style="border: 1px solid #77889380;padding: 10px">
           <div>
             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
@@ -157,7 +157,7 @@
         </mat-list-item>
       </mat-list>
       <div class='choose-address-title'>Add upto 4 contacts <a style="justify-content:right">
-          <span (click)="openDialog()">Add Contact</span></a></div>
+          <span (click)="openDialog('contactList_Template')">Add Contact</span></a></div>
     </mat-expansion-panel>
     <mat-expansion-panel [expanded]="true">
       <mat-expansion-panel-header>
