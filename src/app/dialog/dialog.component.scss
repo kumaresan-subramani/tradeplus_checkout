@@ -1,0 +1,80 @@
+.close-button {
+  float: right;
+  top: -24px;
+  right: -24px;
+}
+
+.close-icon {
+  transition: 1s ease-in-out;
+}
+
+.close-icon:hover {
+  // transform: rotate(180deg);
+}
+
+::ng-deep .icon-outside .close-button {
+  float: right;
+  top: -52px;
+  right: -52px;
+}
+
+::ng-deep .icon-outside .mat-dialog-container {
+  overflow: unset;
+}
+
+body {
+  color: #495a64;
+  h1 {
+    color: #495a64;
+    font-weight: bold !important;
+  }
+  .crete_button {
+    margin-left: 73% !important;
+    background: #003d7a 0% 0% no-repeat padding-box;
+    color: #fff;
+  }
+  .cancel_button {
+    background: #77889380 0% 0% no-repeat padding-box;
+  }
+}
+
+.marker {
+  color: #973937;
+  font-weight: 600;
+}
+
+.dialog-form-container {
+  display: flex;
+  color: #495a64;
+  margin-bottom: 2%;
+  input,
+  textarea {
+    border-radius: 0;
+    margin-left: 5%;
+  }
+  span {
+    font-weight: bold;
+  }
+  label {
+    font-weight: normal;
+  }
+
+  .mat-radio-group {
+    width: 30%;
+  }
+  .mat-radio-button {
+    margin-left: 10%;
+  }
+  .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #495a64;
+  }
+  .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: #495a64;
+  }
+}
+
+.name {
+  input {
+    width: 50%;
+  }
+}

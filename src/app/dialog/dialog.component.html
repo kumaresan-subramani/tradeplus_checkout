@@ -1,0 +1,70 @@
+<button mat-icon-button class="close-button" [mat-dialog-close]="true">
+    <mat-icon class="close-icon" color="warn">close</mat-icon>
+</button>
+
+<ng-container [ngTemplateOutlet]="false ? createContact_Template : deleveryAddress_Template"
+    [ngTemplateOutletContext]="{ $implicit: true }"></ng-container>
+
+
+<ng-template #createContact_Template>
+    <h1 mat-dialog-title>CREATE CONTACT</h1>
+    <div mat-dialog-content>
+        <p class="marker">*Required Fields</p>
+        <!-- <mat-form-field>
+          <mat-label>Favorite Animal</mat-label>
+          <input matInput [(ngModel)]="data.animal">
+        </mat-form-field> -->
+        <div class="dialog-form-container name">
+            <label for="createContact" class="form-label job-ref">Name<span class="marker">*&nbsp;</span></label>
+            <input type="text" class="form-control" id="firstname" placeholder="First Name" required>
+            <input type="text" class="form-control" id="lastname" placeholder="Last Name" required>
+        </div>
+        <div class="dialog-form-container">
+            <label for="createContact" class="form-label job-ref">Email&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" class="form-control" id="Email" placeholder="Email Address" required>
+        </div>
+        <div class="dialog-form-container">
+            <label for="createContact" class="form-label job-ref">Mobile<span class="marker">*</span></label>
+            <input type="text" class="form-control" id="Mobile" placeholder="Mobile Number" required>
+        </div>
+        <div class="dialog-form-container">
+            <p>Do you wish to receive SMS notifications?</p>
+            <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="1">yes</mat-radio-button>
+                <mat-radio-button value="2">No</mat-radio-button>
+            </mat-radio-group>
+        </div>
+
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()" class="cancel_button">Cancel</button>
+        <button mat-button class="crete_button" [mat-dialog-close]="data.animal" cdkFocusInitial>Create</button>
+    </div>
+</ng-template>
+
+<ng-template #contactList_Template>
+    <a
+        href="https://xd.adobe.com/view/531b4b11-a9d0-4ef0-824d-76d427acae54-0648/screen/37432d9d-5a8a-41b5-9214-1938d4b3b157/specs/">design
+        this dialog here</a>
+</ng-template>
+
+<ng-template #deleveryAddress_Template>
+    <h1 mat-dialog-title>DELEVERY ADDRESS DETAILS</h1>
+    <div mat-dialog-content>
+        <p class="marker">*Required Fields</p>
+        <div class="dialog-form-container">
+            <label for="createContact" class="form-label job-ref">Address<span class="marker">*</span></label>
+            <textarea class="form-control" id="address" required></textarea>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()" class="cancel_button">Cancel</button>
+        <button mat-button class="crete_button" [mat-dialog-close]="data.animal" cdkFocusInitial>Create</button>
+    </div>
+</ng-template>
+
+<ng-template #addBranch_Template>
+    <a
+        href="https://xd.adobe.com/view/531b4b11-a9d0-4ef0-824d-76d427acae54-0648/screen/96085e0e-51dc-44b2-971f-3615042a03c1/specs">design
+        this dialog here</a>
+</ng-template>
