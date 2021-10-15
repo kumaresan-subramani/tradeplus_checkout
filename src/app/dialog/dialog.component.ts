@@ -17,6 +17,22 @@ export class DialogComponent {
   deliveryAddress_Template: boolean = false;
   addBranch_Template: boolean = false;
 
+  contactDetails: any = [
+    {
+      name: "aaar",
+      mailid: 3283478,
+      number: "$19.32",
+      is_SMS: true,
+    },
+    {
+      name: "adad",
+      mailid: 3283478,
+      number: "$19.32",
+      is_SMS: false,
+    },
+  ];
+
+  check = true;
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
@@ -31,17 +47,9 @@ export class DialogComponent {
       this.data.templateName == "addBranch_Template" ? true : false;
   }
 
-  ngOnInit(): void {
-    debugger;
-    // this.createContact_Template =
-    //   this.data.templateName == "createContact_Template" ? true : false;
-    // this.contactList_Template =
-    //   this.data.templateName == "contactList_Template" ? true : false;
-    // this.deliveryAddress_Template =
-    //   this.data.templateName == "deliveryAddress_Template" ? true : false;
-    // this.addBranch_Template =
-    //   this.data.templateName == "addBranch_Template" ? true : false;
-  }
+  ngOnInit(): void {}
+
+  createContact(tempName?: string) {}
 
   onNoClick(): void {
     this.dialogRef.close();
