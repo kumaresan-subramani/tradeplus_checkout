@@ -8,8 +8,7 @@
     [ngTemplateOutletContext]="{ $implicit: true }"></ng-container> -->
 
 <ng-container [ngTemplateOutlet]="false ? createContact_Template : 
-    deliveryAddress_Template"
-    [ngTemplateOutletContext]="{ $implicit: true }"></ng-container>
+addBranch_Template" [ngTemplateOutletContext]="{ $implicit: true }"></ng-container>
 
 <ng-template #createContact_Template>
     <h1 mat-dialog-title>CREATE CONTACT</h1>
@@ -69,7 +68,41 @@
 </ng-template>
 
 <ng-template #addBranch_Template>
-    <a
-        href="https://xd.adobe.com/view/531b4b11-a9d0-4ef0-824d-76d427acae54-0648/screen/96085e0e-51dc-44b2-971f-3615042a03c1/specs">design
-        this dialog here</a>
+    <h1 mat-dialog-title>Add Branch</h1>
+    <p>Delivery only available from your Home branch. Alternate branches are Click & Collect only.</p>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">
+            <mat-icon matPrefix>location_on</mat-icon>
+        </span>
+        <input type="text" class="form-control" placeholder="Search store by address, city or postcode"
+            aria-describedby="basic-addon1">
+        <span class="input-group-text">
+            <mat-icon matPrefix>search</mat-icon>
+        </span>
+    </div>
+    <h4 class="sub_header">Nearest Branch</h4>
+    <div>
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel [expanded]="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Silverwater
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Silverwater 34 Buffalo Road, Hamilton QLD 4007
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class='date-time-title'>The date and time below is the earliest available.</div>
+                <div class="form-container">
+                    <label for="date" class="form-label job-ref">Date </label>
+                    <input type="date" class="form-control" id="date" required>
+                </div>
+                <div class="form-container">
+                    <label for="time" class="form-label job-ref">Time </label>
+                    <input type="time" class="form-control" id="time" required>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
 </ng-template>
