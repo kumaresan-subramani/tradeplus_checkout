@@ -29,12 +29,17 @@ body {
     font-weight: bold !important;
   }
   .crete_button {
-    margin-left: 73% !important;
+    float: right;
     background: #003d7a 0% 0% no-repeat padding-box;
     color: #fff;
   }
   .cancel_button {
     background: #77889380 0% 0% no-repeat padding-box;
+  }
+  .createContact {
+    background-color: #495a64;
+    color: #fff;
+    float: right;
   }
 }
 
@@ -76,5 +81,17 @@ body {
 .name {
   input {
     width: 50%;
+  }
+}
+
+.contact-list-title {
+  font-size: 11px;
+  color: #495a64;
+  letter-spacing: 0px;
+  opacity: 1;
+  padding-top: 10px;
+  font-weight: 700;
+  a {
+    float: right;
   }
 }

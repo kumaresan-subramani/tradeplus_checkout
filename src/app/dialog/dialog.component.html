@@ -8,8 +8,7 @@
     [ngTemplateOutletContext]="{ $implicit: true }"></ng-container> -->
 
 <ng-container [ngTemplateOutlet]="false ? createContact_Template : 
-    deliveryAddress_Template"
-    [ngTemplateOutletContext]="{ $implicit: true }"></ng-container>
+contactList_Template" [ngTemplateOutletContext]="{ $implicit: true }"></ng-container>
 
 <ng-template #createContact_Template>
     <h1 mat-dialog-title>CREATE CONTACT</h1>
@@ -39,18 +38,47 @@
                 <mat-radio-button value="2">No</mat-radio-button>
             </mat-radio-group>
         </div>
-
     </div>
-    <div mat-dialog-actions>
-        <button mat-button (click)="onNoClick()" class="cancel_button">Cancel</button>
-        <button mat-button class="crete_button" [mat-dialog-close]="data.animal" cdkFocusInitial>Create</button>
+    <!-- <div mat-dialog-actions> -->
+    <div class="row">
+        <div class='col-sm-6'>
+            <button mat-button (click)="onNoClick()" class="cancel_button">Cancel</button>
+        </div>
+        <div class='col-sm-6'>
+            <button mat-button class="crete_button" [mat-dialog-close]="data.animal" cdkFocusInitial>Create
+            </button>
+        </div>
     </div>
+    <!-- </div> -->
 </ng-template>
 
 <ng-template #contactList_Template>
-    <a
-        href="https://xd.adobe.com/view/531b4b11-a9d0-4ef0-824d-76d427acae54-0648/screen/37432d9d-5a8a-41b5-9214-1938d4b3b157/specs/">design
-        this dialog here</a>
+    <h1 mat-dialog-title>CONTACT LIST</h1>
+    <div mat-dialog-content>
+        <div class="row" style="margin-bottom: 2%;">
+            <div class='col-sm-6 contact-list-title'>You can add upto 4 contacts</div>
+            <div class='col-sm-6'>
+                <button mat-button (click)="createContact()" class="createContact">Create Contact</button>
+            </div>
+        </div>
+
+        <div class="dialog-form-container">
+            <input type="text" class="form-control" style="margin-left:0" id="Email" placeholder="Email Address"
+                required>
+        </div>
+
+    </div>
+    <!-- <div mat-dialog-actions> -->
+    <div class="row">
+        <div class='col-sm-6'>
+            <button mat-button (click)="onNoClick()" class="cancel_button">Cancel</button>
+        </div>
+        <div class='col-sm-6'>
+            <button mat-button class="crete_button" [mat-dialog-close]="data.animal" cdkFocusInitial>Add
+                Contact</button>
+        </div>
+    </div>
+    <!-- </div> -->
 </ng-template>
 
 <ng-template #deliveryAddress_Template>
@@ -62,10 +90,17 @@
             <textarea class="form-control" id="address" required></textarea>
         </div>
     </div>
-    <div mat-dialog-actions>
-        <button mat-button (click)="onNoClick()" class="cancel_button">Cancel</button>
-        <button mat-button class="crete_button" [mat-dialog-close]="data.animal" cdkFocusInitial>Create</button>
+    <!-- <div mat-dialog-actions> -->
+    <div class="row">
+        <div class='col-sm-6'>
+            <button mat-button (click)="onNoClick()" class="cancel_button">Cancel</button>
+        </div>
+        <div class='col-sm-6'>
+            <button mat-button class="crete_button" [mat-dialog-close]="data.animal" cdkFocusInitial>Create
+            </button>
+        </div>
     </div>
+    <!-- </div> -->
 </ng-template>
 
 <ng-template #addBranch_Template>
