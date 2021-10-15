@@ -1,5 +1,5 @@
 <button mat-icon-button class="close-button" [mat-dialog-close]="true">
-    <mat-icon class="close-icon" color="warn">close</mat-icon>
+    <mat-icon class="close-icon">close</mat-icon>
 </button>
 
 <!-- <ng-container [ngTemplateOutlet]="createContact_Template ? createContact_Template : 
@@ -54,19 +54,41 @@ contactList_Template" [ngTemplateOutletContext]="{ $implicit: true }"></ng-conta
 
 <ng-template #contactList_Template>
     <h1 mat-dialog-title>CONTACT LIST</h1>
-    <div mat-dialog-content>
+    <div mat-dialog-content style="margin-bottom: 5%;">
         <div class="row" style="margin-bottom: 2%;">
             <div class='col-sm-6 contact-list-title'>You can add upto 4 contacts</div>
             <div class='col-sm-6'>
                 <button mat-button (click)="createContact()" class="createContact">Create Contact</button>
             </div>
         </div>
-
         <div class="dialog-form-container">
-            <input type="text" class="form-control" style="margin-left:0" id="Email" placeholder="Email Address"
-                required>
+            <input type="text" class="form-control" style="margin-left:0" id="Email"
+                placeholder="search by Name or Phone" required>
         </div>
-
+        <mat-list style="margin-bottom: 5px;">
+            <mat-list-item *ngFor="let details of contactDetails" class="contact_list_seperator">
+                <!-- <div class="mat-list-text">s</div> -->
+                <div class="row">
+                    <div class="col-sm-2" style="padding-top: 7%;">
+                        <mat-checkbox [checked]="details.is_SMS"></mat-checkbox>
+                    </div>
+                    <div class="col-sm-8">
+                        <div mat-line class='list-content'>{{details.name}}</div>
+                        <div mat-line>
+                            <span>{{details.mailid}} &nbsp;|&nbsp;</span>
+                            <span>{{details.number}} &nbsp;|&nbsp;</span>
+                            <span>
+                                <mat-checkbox class="example-margin" [checked]="details.is_SMS">SMS</mat-checkbox>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-2" style="padding-top: 7%;float: right;">
+                        <mat-icon aria-hidden="false" class="mat_icon_color" aria-label="edit_icon">edit
+                        </mat-icon>
+                    </div>
+                </div>
+            </mat-list-item>
+        </mat-list>
     </div>
     <!-- <div mat-dialog-actions> -->
     <div class="row">

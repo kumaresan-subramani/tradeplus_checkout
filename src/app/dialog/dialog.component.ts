@@ -9,13 +9,28 @@ import {
   selector: "app-dialog",
   templateUrl: "dialog.component.html",
   styleUrls: ["dialog.component.scss"],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class DialogComponent {
   createContact_Template: boolean = false;
   contactList_Template: boolean = false;
   deliveryAddress_Template: boolean = false;
   addBranch_Template: boolean = false;
+
+  contactDetails: any = [
+    {
+      name: "aaar",
+      mailid: 3283478,
+      number: "$19.32",
+      is_SMS: true,
+    },
+    {
+      name: "adad",
+      mailid: 3283478,
+      number: "$19.32",
+      is_SMS: false,
+    },
+  ];
 
   check = true;
   constructor(
@@ -32,17 +47,7 @@ export class DialogComponent {
       this.data.templateName == "addBranch_Template" ? true : false;
   }
 
-  ngOnInit(): void {
-    debugger;
-    // this.createContact_Template =
-    //   this.data.templateName == "createContact_Template" ? true : false;
-    // this.contactList_Template =
-    //   this.data.templateName == "contactList_Template" ? true : false;
-    // this.deliveryAddress_Template =
-    //   this.data.templateName == "deliveryAddress_Template" ? true : false;
-    // this.addBranch_Template =
-    //   this.data.templateName == "addBranch_Template" ? true : false;
-  }
+  ngOnInit(): void {}
 
   createContact(tempName?: string) {}
 
