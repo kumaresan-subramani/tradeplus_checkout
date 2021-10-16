@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="dialog-form-container">
-            <input type="text" class="form-control" style="margin-left:0" id="Email"
+            <input type="text" class="form-control" (input)="searchContact($event)" style="margin-left:0" id="Email"
                 placeholder="search by Name or Phone" required>
         </div>
         <mat-list style="margin-bottom: 5px;">
@@ -24,15 +24,15 @@
                 <!-- <div class="mat-list-text">s</div> -->
                 <div class="row" style="width: 100%;">
                     <div class="col-sm-2" style="padding-top: 5%;">
-                        <mat-checkbox [checked]="details.is_SMS"></mat-checkbox>
+                        <mat-checkbox [(ngModel)]="details.is_SMS"></mat-checkbox>
                     </div>
                     <div class="col-sm-8" style="padding-top: 3%;">
-                        <div mat-line class='list-content'>{{details.name}}</div>
+                        <div mat-line class='list-content'>{{details.firstName}} {{details.lastName}}</div>
                         <div mat-line>
-                            <span>{{details.mailid}} &nbsp;|&nbsp;</span>
-                            <span>{{details.number}} &nbsp;|&nbsp;</span>
+                            <span>{{details.email}} &nbsp;|&nbsp;</span>
+                            <span>{{details.mobileNo}} &nbsp;|&nbsp;</span>
                             <span>
-                                <mat-checkbox class="example-margin" [checked]="details.is_SMS">SMS</mat-checkbox>
+                                <mat-checkbox class="example-margin" [(ngModel)]="details.is_SMS">SMS</mat-checkbox>
                             </span>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
             <button mat-button (click)="onNoClick()" class="cancel_button">Cancel</button>
         </div>
         <div class='col-sm-6'>
-            <button mat-button class="crete_button" [mat-dialog-close]="data.animal" cdkFocusInitial>Add
+            <button mat-button class="crete_button" (click)="onNoClick()" [mat-dialog-close]="data.animal" cdkFocusInitial>Add
                 Contact</button>
         </div>
     </div>
@@ -63,7 +63,7 @@
         <p class="marker">*Required Fields</p>
         <div class="dialog-form-container">
             <label for="createContact" class="form-label job-ref">Address<span class="marker">*</span></label>
-            <textarea class="form-control" id="address" required></textarea>
+            <textarea class="form-control" id="address" required [(ngModel)]="dialogData.address"></textarea>
         </div>
     </div>
     <!-- <div mat-dialog-actions> -->
@@ -72,7 +72,7 @@
             <button mat-button (click)="onNoClick()" class="cancel_button">Cancel</button>
         </div>
         <div class='col-sm-6'>
-            <button mat-button class="crete_button" [mat-dialog-close]="data.animal" cdkFocusInitial>Create
+            <button mat-button class="crete_button" [mat-dialog-close]="data.animal" (click)="onNoClick()" cdkFocusInitial>Create
             </button>
         </div>
     </div>

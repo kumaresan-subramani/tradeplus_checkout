@@ -75,15 +75,17 @@ export class AppComponent {
 
   contactDetails: any = [
     {
-      name: 'aaar',
-      mailid: 3283478,
-      number: '$19.32',
-      is_SMS: true
+      firstName: 'aa',
+      lastName: 'bb',
+      email: 'aa@gmail.com',
+      mobileNo: '1234567890',
+      is_SMS: false
     },
     {
-      name: 'adad',
-      mailid: 3283478,
-      number: '$19.32',
+      firstName: 'bb',
+      lastName: 'cc',
+      email: 'bb@gmail.com',
+      mobileNo: '1234567890',
       is_SMS: false
     }
   ];
@@ -109,6 +111,14 @@ export class AppComponent {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       this.animal = result;
+      if (result) {
+        if(result.address != '') {
+          this.addressData.push({ selected: false, value: result.address});
+        }
+        if(result.contactList) {
+          this.contactDetails = result.contactList;
+        }  
+      }
     });
   }
 

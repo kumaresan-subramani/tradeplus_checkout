@@ -18,26 +18,39 @@ export class DialogComponent {
 
   contactDetails: any = [
     {
-      name: "aaar",
-      mailid: 3283478,
-      number: "$19.32",
-      is_SMS: true,
+      firstName: 'aa',
+      lastName: 'bb',
+      email: 'aa@gmail.com',
+      mobileNo: '1234567890',
+      is_SMS: false
     },
     {
-      name: "adad",
-      mailid: 3283478,
-      number: "$19.32",
-      is_SMS: false,
-    },
+      firstName: 'bb',
+      lastName: 'cc',
+      email: 'bb@gmail.com',
+      mobileNo: '1234567890',
+      is_SMS: false
+    }
   ];
+  dialogData: { [key: string]: Object | null } = {
+    address: '', 
+    contactList: null,
 
+  }
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
+  searchList: any = [];
+  ngOnInit(): void {
 
-  ngOnInit(): void {}
+    this.searchList = [...this.contactDetails];
+  }
+
+  getContactdata() {
+    return this.contactDetails.filter((contact: any)=>contact.is_SMS);
+  }
 
   isDelivery(): boolean {
     return this.data.templateName == "deliveryAddress_Template" ? true : false;
@@ -46,16 +59,22 @@ export class DialogComponent {
   isContactList(): boolean {
     return this.data.templateName == "contactList_Template" ? true : false;
   }
-
+  searchContact(args: any) {
+    debugger
+    var value = args.target.value;
+    this.contactDetails = this.searchList.filter((item: any)=> item.firstName.includes(value));
+  }
   isaddBranch(): boolean {
     return this.data.templateName == "addBranch_Template" ? true : false;
   }
 
   onNoClick(): void {
-    this.dialogRef.close();
+    this.dialogData.contactList = this.getContactdata();
+    this.dialogRef.close(this.dialogData);
   }
 
   createContact(): void {
+    debugger
     const dialogRef = this.dialog.open(childDialogComponent, {
       width: "40%",
       data: {
@@ -65,6 +84,12 @@ export class DialogComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        var additem = {name: result.firstName,  mailid: result.email,
+          is_SMS: result.is_SMS, number: "$19.32" };
+        this.contactDetails.push(additem);
+        this.searchList.push(additem);
+      }
       console.log(result);
     });
   }
@@ -77,6 +102,13 @@ export class DialogComponent {
   encapsulation: ViewEncapsulation.None,
 })
 export class childDialogComponent {
+  contactDetails: { [key: string]: Object | null } = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    mobileNo: '',
+    is_SMS: false
+  }
   constructor(
     public dialogRef: MatDialogRef<childDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
@@ -85,9 +117,9 @@ export class childDialogComponent {
   ngOnInit(): void {}
 
   onNoClick(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(this.contactDetails);
   }
   createContact() {
-    this.dialogRef.close("data from child dialog to parent dialog");
+    this.dialogRef.close(this.contactDetails);
   }
 }
