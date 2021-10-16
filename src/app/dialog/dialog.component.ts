@@ -18,25 +18,24 @@ export class DialogComponent {
 
   contactDetails: any = [
     {
-      firstName: 'aa',
-      lastName: 'bb',
-      email: 'aa@gmail.com',
-      mobileNo: '1234567890',
-      is_SMS: false
+      firstName: "aa",
+      lastName: "bb",
+      email: "aa@gmail.com",
+      mobileNo: "1234567890",
+      is_SMS: false,
     },
     {
-      firstName: 'bb',
-      lastName: 'cc',
-      email: 'bb@gmail.com',
-      mobileNo: '1234567890',
-      is_SMS: false
-    }
+      firstName: "bb",
+      lastName: "cc",
+      email: "bb@gmail.com",
+      mobileNo: "1234567890",
+      is_SMS: false,
+    },
   ];
   dialogData: { [key: string]: Object | null } = {
-    address: '', 
+    address: "",
     contactList: null,
-
-  }
+  };
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
     public dialog: MatDialog,
@@ -44,12 +43,11 @@ export class DialogComponent {
   ) {}
   searchList: any = [];
   ngOnInit(): void {
-
     this.searchList = [...this.contactDetails];
   }
 
   getContactdata() {
-    return this.contactDetails.filter((contact: any)=>contact.is_SMS);
+    return this.contactDetails.filter((contact: any) => contact.is_SMS);
   }
 
   isDelivery(): boolean {
@@ -60,9 +58,10 @@ export class DialogComponent {
     return this.data.templateName == "contactList_Template" ? true : false;
   }
   searchContact(args: any) {
-    debugger
     var value = args.target.value;
-    this.contactDetails = this.searchList.filter((item: any)=> item.firstName.includes(value));
+    this.contactDetails = this.searchList.filter((item: any) =>
+      item.firstName.includes(value)
+    );
   }
   isaddBranch(): boolean {
     return this.data.templateName == "addBranch_Template" ? true : false;
@@ -74,7 +73,6 @@ export class DialogComponent {
   }
 
   createContact(): void {
-    debugger
     const dialogRef = this.dialog.open(childDialogComponent, {
       width: "40%",
       data: {
@@ -85,8 +83,12 @@ export class DialogComponent {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        var additem = {name: result.firstName,  mailid: result.email,
-          is_SMS: result.is_SMS, number: "$19.32" };
+        var additem = {
+          name: result.firstName,
+          mailid: result.email,
+          is_SMS: result.is_SMS,
+          number: "$19.32",
+        };
         this.contactDetails.push(additem);
         this.searchList.push(additem);
       }
@@ -103,12 +105,12 @@ export class DialogComponent {
 })
 export class childDialogComponent {
   contactDetails: { [key: string]: Object | null } = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    mobileNo: '',
-    is_SMS: false
-  }
+    firstName: "",
+    lastName: "",
+    email: "",
+    mobileNo: "",
+    is_SMS: false,
+  };
   constructor(
     public dialogRef: MatDialogRef<childDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any

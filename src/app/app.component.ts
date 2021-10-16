@@ -122,10 +122,10 @@ export class AppComponent {
   }
 
   openDialog(tempName?: string): void {
-    let temp: string =
-      tempName === "deliveryAddress_Template" && this.isDeliveryBox
-        ? tempName
-        : "addBranch_Template";
+    let temp: any = tempName;
+    if (tempName === "deliveryAddress_Template") {
+      temp = this.isDeliveryBox ? tempName : "addBranch_Template";
+    }
     const dialogRef = this.dialog.open(DialogComponent, {
       width: "40%",
       data: {
