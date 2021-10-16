@@ -50,7 +50,7 @@
             <button mat-button (click)="onNoClick()" class="cancel_button">Cancel</button>
         </div>
         <div class='col-sm-6'>
-            <button mat-button class="crete_button" (click)="onNoClick()" [mat-dialog-close]="data.animal"
+            <button mat-button class="crete_button" (click)="onNoClick(true)" [mat-dialog-close]="data.animal"
                 cdkFocusInitial>Add
                 Contact</button>
         </div>
@@ -73,7 +73,7 @@
             <button mat-button (click)="onNoClick()" class="cancel_button">Cancel</button>
         </div>
         <div class='col-sm-6'>
-            <button mat-button class="crete_button" [mat-dialog-close]="data.animal" (click)="onNoClick()"
+            <button mat-button class="crete_button" [mat-dialog-close]="data.animal" (click)="onNoClick(true)"
                 cdkFocusInitial>Create
             </button>
         </div>
