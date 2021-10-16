@@ -99,12 +99,12 @@
       <mat-expansion-panel-header>
         <mat-panel-title> 1. Job Reference</mat-panel-title>
       </mat-expansion-panel-header>
-      <div class="form-container">
-        <label for="joborder" class="form-label job-ref">Order / Job Ref. </label>
+      <div class="form-container" style="display: flex;">
+        <label for="joborder" class="form-label job-ref">Order / Job Ref. <span class="marker">*</span></label>
         <input type="text" class="form-control" id="joborder" placeholder="Enter Order number or Job Reference"
           required>
       </div>
-      <div class="form-container">
+      <div class="form-container" style="display: flex;">
         <label for="jobaccount" class="form-label job-ref">Job Account </label>
         <select class="form-select form-control" aria-label="Default select example">
           <option selected>Select Job Account Number</option>
@@ -114,15 +114,15 @@
 
     <mat-expansion-panel [expanded]="true">
       <mat-expansion-panel-header>
-        <mat-panel-title> 2. Date & Time </mat-panel-title>
+        <mat-panel-title> 2. Date & Time</mat-panel-title>
       </mat-expansion-panel-header>
       <div class='date-time-title'>The date and time below is the earliest available.</div>
-      <div class="form-container">
-        <label for="date" class="form-label job-ref">Date </label>
+      <div class="form-container" style="display: flex;">
+        <label for="date" class="form-label job-ref">Date <span class="marker">*</span></label>
         <input type="date" class="form-control" id="date" required>
       </div>
-      <div class="form-container">
-        <label for="time" class="form-label job-ref">Time </label>
+      <div class="form-container" style="display: flex;">
+        <label for="time" class="form-label job-ref">Time <span class="marker">*</span></label>
         <input type="time" class="form-control" id="time" required>
       </div>
     </mat-expansion-panel>
@@ -130,7 +130,7 @@
       <mat-expansion-panel-header>
         <mat-panel-title> {{ isDeliveryBox ? '3. Address' : 'Location' }} </mat-panel-title>
       </mat-expansion-panel-header>
-      <div class='address-title'>Most recent develiry address </div>
+      <div class='address-title'>Most recent delivery address </div>
       <div class="form-container">
         <textarea class="form-control" readonly [(ngModel)]="selectedAddress.value" id="address" required></textarea>
       </div>
