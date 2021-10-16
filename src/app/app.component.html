@@ -1,7 +1,7 @@
 <!-- content section -->
 <div class="container-page">
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-8">
       <div>
         <mat-card>
           <mat-card-header style="text-align: center; justify-content: center;">
@@ -14,30 +14,30 @@
               <mat-card>
                 <mat-card-content class="box-container">
                   <div class="delivery-box" [ngClass]="isDeliveryBox ? ACTIVE_ITEM : ''" (click)="selectBox(true)">
-                      <ng-template [ngIf]="isDeliveryBox">
-                        <mat-checkbox class="active-checkbox" [(ngModel)]="isDeliveryBox"></mat-checkbox>
-                      </ng-template>
+                    <ng-template [ngIf]="isDeliveryBox">
+                      <mat-checkbox class="active-checkbox" [(ngModel)]="isDeliveryBox"></mat-checkbox>
+                    </ng-template>
                   </div>
                   <div>
-                  <mat-card-title>Delivery</mat-card-title>
-                  <mat-card-subtitle>We deliver right to</mat-card-subtitle>
-                  <mat-card-subtitle>your door</mat-card-subtitle>
-                </div>
+                    <mat-card-title>Delivery</mat-card-title>
+                    <mat-card-subtitle>We deliver right to</mat-card-subtitle>
+                    <mat-card-subtitle>your door</mat-card-subtitle>
+                  </div>
                 </mat-card-content>
               </mat-card>
 
               <mat-card>
                 <mat-card-content class="box-container">
                   <div class="collect-box" [ngClass]="isDeliveryBox ? '' : ACTIVE_ITEM" (click)="selectBox(false)">
-                      <ng-template [ngIf]="!isDeliveryBox">
-                          <mat-checkbox class="active-checkbox" [(ngModel)]="!isDeliveryBox"></mat-checkbox>
-                      </ng-template>
+                    <ng-template [ngIf]="!isDeliveryBox">
+                      <mat-checkbox class="active-checkbox" [(ngModel)]="!isDeliveryBox"></mat-checkbox>
+                    </ng-template>
                   </div>
                   <div>
-                  <mat-card-title>Click & Collect</mat-card-title>
-                  <mat-card-subtitle>Collect form your</mat-card-subtitle>
-                  <mat-card-subtitle>nearest branch</mat-card-subtitle>
-                </div>
+                    <mat-card-title>Click & Collect</mat-card-title>
+                    <mat-card-subtitle>Collect form your</mat-card-subtitle>
+                    <mat-card-subtitle>nearest branch</mat-card-subtitle>
+                  </div>
                 </mat-card-content>
               </mat-card>
             </div>
@@ -56,19 +56,36 @@
       </div>
       <button class="save-button" (click)="openDialog()">Save & Continue</button>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-4">
       <mat-card>
         <mat-card-content>
-          <mat-list>
-            <div mat-subheader class="list-head">Cart Summery <span class='sub-item'> 10 items</span></div>
+          <div mat-subheader class="list-head">Cart Summery <span class='sub-item'> 10 items</span></div>
+          <mat-list class="items">
             <mat-list-item *ngFor="let cart of cartItems">
               <div mat-line class='list-content'>{{cart.name}}</div>
               <div mat-line>Item Code : {{cart.itemCode}} </div>
-              <div style="float:right">{{cart.price}} </div>
+              <div class="price">{{cart.price}} </div>
             </mat-list-item>
           </mat-list>
         </mat-card-content>
         <mat-card-actions>
+          <mat-list style="border-top: solid 1px lightgrey;">
+            <mat-list-item>
+              <div mat-line class='list-content'>Sub Total (excl. GST)</div>
+              <div class="price">$00.00 </div>
+            </mat-list-item>
+            <mat-list-item>
+              <div mat-line class='list-content'>GST</div>
+              <div class="price">$00.00 </div>
+            </mat-list-item>
+          </mat-list>
+          <mat-list style="border-top: solid 1px lightgrey;">
+            <mat-list-item>
+              <div mat-line class='list-content' style="font-size: 18px !important;
+              ">Total (incl. GST)</div>
+              <div class="price">$00.00</div>
+            </mat-list-item>
+          </mat-list>
         </mat-card-actions>
       </mat-card>
     </div>
@@ -123,7 +140,8 @@
             <span (click)="openDialog('deliveryAddress_Template')">Add Address</span></a></div>
         <div style="border: 1px solid #77889380;padding: 10px">
           <div *ngFor="let address of addressData; index as i">
-            <input class="form-check-input" type="radio" (change)="addressChange($event)" [ngModel]="address.selected" (click)="addressClick(address)" name="flexRadioDefault{{i}}" id="flexRadioDefault{{i}}" />
+            <input class="form-check-input" type="radio" (change)="addressChange($event)" [ngModel]="address.selected"
+              (click)="addressClick(address)" name="flexRadioDefault{{i}}" id="flexRadioDefault{{i}}" />
             <label class="form-check-label" for="flexRadioDefault{{i}}">
               {{address.value}}
             </label>
@@ -161,7 +179,8 @@
     </mat-expansion-panel>
     <mat-expansion-panel [expanded]="true">
       <mat-expansion-panel-header>
-        <mat-panel-title> {{isDeliveryBox ? '5. Delivery Instructions' : '5. Additional Instructions' }} </mat-panel-title>
+        <mat-panel-title> {{isDeliveryBox ? '5. Delivery Instructions' : '5. Additional Instructions' }}
+        </mat-panel-title>
       </mat-expansion-panel-header>
       <div>
         <textarea class="form-control" style="width: 100%;" id="Instructions"

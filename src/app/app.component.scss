@@ -14,13 +14,13 @@
   border: 2px solid #c3c1c1c4;
   border-radius: 10px;
   opacity: 1;
-  background: #e0e1e233 0% 0% no-repeat padding-box; 
-  display: inline-flex; 
+  background: #e0e1e233 0% 0% no-repeat padding-box;
+  display: inline-flex;
   padding: 50px;
 }
 
 .delivery-box.active-box,
-.collect-box.active-box { 
+.collect-box.active-box {
   background: #E0E1E233 0% 0% no-repeat padding-box;
   border: 2px solid #00AFE2;
   border-radius: 20px;
@@ -31,7 +31,7 @@
 .collect-box .mat-checkbox.active-checkbox {
   right: 17px;
   position: absolute;
-  top: 13px; 
+  top: 13px;
 }
 .card-container {
   vertical-align: middle;
@@ -56,31 +56,31 @@
 
 .box-container .mat-card-title {
   text-align: center;
-  font-size: 11px;
   font-weight: bold;
   color: #495a64;
   opacity: 1;
   margin: 0px;
+  font-size: 15px;
 }
 
 .box-container .mat-card-subtitle {
-  font-size: 10px;
   color: #495a64;
   opacity: 1;
   margin: 0px;
   font: normal normal normal 10px/13px Niveau Grotesk;
   opacity: 1;
+  font-size: 12px;
+  margin: 1px !important;
 }
 
-.delivery-accordion
-  .mat-expansion-panel
-  .mat-expansion-panel-header
-  .mat-expansion-panel-header-title {
+.delivery-accordion .mat-expansion-panel .mat-expansion-panel-header .mat-expansion-panel-header-title {
   text-align: left;
   font: normal normal bold 13px/20px Niveau Grotesk;
   letter-spacing: 0px;
   color: #495a64;
   opacity: 1;
+  font-size: 18px;
+  margin-bottom: 5px;
 }
 
 .delivery-accordion .form-control {
@@ -90,6 +90,7 @@
   border-radius: 2px;
   opacity: 1;
   color: #495a64;
+  font-size: 14px;
 }
 .delivery-accordion textarea.form-control {
   height: 0px;
@@ -116,10 +117,7 @@
   height: 30px;
 }
 
-.delivery-accordion
-  .mat-expansion-panel.job-reference-panel
-  .mat-expansion-panel-content
-  .mat-expansion-panel-body {
+.delivery-accordion .mat-expansion-panel.job-reference-panel .mat-expansion-panel-content .mat-expansion-panel-body {
   padding: 16px 24px 16px;
 }
 
@@ -132,7 +130,7 @@
 }
 
 .delivery-accordion .date-time-title {
-  font-size: 10px;
+  font-size: 13px;
   color: #495a64;
   letter-spacing: 0px;
   opacity: 1;
@@ -161,11 +159,12 @@
   }
 }
 
-.mat-list-base .mat-subheader.list-head {
+.mat-subheader.list-head {
   font: normal normal bold 18px/23px Niveau Grotesk;
   letter-spacing: 0px;
   color: #495a64;
   opacity: 1;
+  font-size: 20px;
 }
 .list-content {
   font-weight: bold !important;
@@ -193,7 +192,41 @@
   color: #495a64;
 }
 
-a:not([href]):not([class]), a:not([href]):not([class]):hover {
+a:not([href]):not([class]),
+a:not([href]):not([class]):hover {
   color: #0d6efd;
   cursor: pointer;
+}
+
+.sub-item {
+  font-size: 14px;
+  margin-left: 10px;
+  margin-top: 3px;
+}
+
+mat-card {
+  .price {
+    float: right;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .items {
+    max-height: 700px;
+    overflow-y: auto;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 5px; /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #cfd0d380 0% 0% no-repeat padding-box;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #77889380 0% 0% no-repeat padding-box;
+  border: 2px solid #77889380;
+  border-radius: 10px;
 }
