@@ -1,143 +1,145 @@
-import { Component, ViewEncapsulation } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from './dialog/dialog.component';
+import { Component, ViewEncapsulation } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
+import { DialogComponent } from "./dialog/dialog.component";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
-  title = 'trade-plus';
+  title = "trade-plus";
   public animal!: string;
   name!: string;
 
-  ACTIVE_ITEM: string = 'active-box';
+  ACTIVE_ITEM: string = "active-box";
   public isDeliveryBox: boolean = true;
   public selectedAddress: any;
   addressData: AddressData[] = [
     {
       selected: true,
-      value: '810 Great South Road, Penrose Auckland'
+      value: "810 Great South Road, Penrose Auckland",
     },
     {
       selected: false,
-      value: '1 Wordsworth Street, Rolleston Selwyn District 7614'
+      value: "1 Wordsworth Street, Rolleston Selwyn District 7614",
     },
     {
       selected: false,
-      value: '22/1 Glenside Crescent, 22/1 Glenside Crescent,'
-    }
+      value: "22/1 Glenside Crescent, 22/1 Glenside Crescent,",
+    },
   ];
   cartItems: any = [
     {
-      name: 'Classic Courtyard Flagstone paver',
+      name: "Classic Courtyard Flagstone paver",
       itemCode: 3283478,
-      price: '$19.32',
+      price: "$19.32",
     },
     {
-      name: 'Classic Courtyard Flagstone paver',
+      name: "Classic Courtyard Flagstone paver",
       itemCode: 3283478,
-      price: '$19.32',
+      price: "$19.32",
     },
     {
-      name: 'Classic Courtyard Flagstone paver',
+      name: "Classic Courtyard Flagstone paver",
       itemCode: 3283478,
-      price: '$19.32',
+      price: "$19.32",
     },
     {
-      name: 'Classic Courtyard Flagstone paver',
+      name: "Classic Courtyard Flagstone paver",
       itemCode: 3283478,
-      price: '$19.32',
+      price: "$19.32",
     },
     {
-      name: 'Classic Courtyard Flagstone paver',
+      name: "Classic Courtyard Flagstone paver",
       itemCode: 3283478,
-      price: '$19.32',
+      price: "$19.32",
     },
     {
-      name: 'Classic Courtyard Flagstone paver',
+      name: "Classic Courtyard Flagstone paver",
       itemCode: 3283478,
-      price: '$19.32',
+      price: "$19.32",
     },
     {
-      name: 'Classic Courtyard Flagstone paver',
+      name: "Classic Courtyard Flagstone paver",
       itemCode: 3283478,
-      price: '$19.32',
+      price: "$19.32",
     },
     {
-      name: 'Classic Courtyard Flagstone paver',
+      name: "Classic Courtyard Flagstone paver",
       itemCode: 3283478,
-      price: '$19.32',
+      price: "$19.32",
     },
     {
-      name: 'Classic Courtyard Flagstone paver',
+      name: "Classic Courtyard Flagstone paver",
       itemCode: 3283478,
-      price: '$19.32',
+      price: "$19.32",
     },
     {
-      name: 'Classic Courtyard Flagstone paver',
+      name: "Classic Courtyard Flagstone paver",
       itemCode: 3283478,
-      price: '$19.32',
+      price: "$19.32",
     },
     {
-      name: 'Classic Courtyard Flagstone paver',
+      name: "Classic Courtyard Flagstone paver",
       itemCode: 3283478,
-      price: '$19.32',
+      price: "$19.32",
     },
     {
-      name: 'Classic Courtyard Flagstone paver',
+      name: "Classic Courtyard Flagstone paver",
       itemCode: 3283478,
-      price: '$19.32',
+      price: "$19.32",
     },
     {
-      name: 'Classic Courtyard Flagstone paver',
+      name: "Classic Courtyard Flagstone paver",
       itemCode: 3283478,
-      price: '$19.32',
+      price: "$19.32",
     },
   ];
 
   contactDetails: any = [
     {
-      firstName: 'aa',
-      lastName: 'bb',
-      email: 'aa@gmail.com',
-      mobileNo: '1234567890',
-      is_SMS: false
+      firstName: "aa",
+      lastName: "bb",
+      email: "aa@gmail.com",
+      mobileNo: "1234567890",
+      is_SMS: false,
     },
     {
-      firstName: 'bb',
-      lastName: 'cc',
-      email: 'bb@gmail.com',
-      mobileNo: '1234567890',
-      is_SMS: false
-    }
+      firstName: "bb",
+      lastName: "cc",
+      email: "bb@gmail.com",
+      mobileNo: "1234567890",
+      is_SMS: false,
+    },
   ];
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    // this.openDialog(); 
     this.selectedAddress = this.addressData.filter((item) => item.selected)[0];
   }
 
   openDialog(tempName?: string): void {
-    // let templateName: string = 'createContact_Template';
+    let temp: string =
+      tempName === "deliveryAddress_Template" && this.isDeliveryBox
+        ? tempName
+        : "addBranch_Template";
     const dialogRef = this.dialog.open(DialogComponent, {
-      width: '40%',
+      width: "40%",
       data: {
-        templateName: tempName,
+        templateName: temp,
         name: this.name,
         animal: this.animal,
       },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+      console.log("The dialog was closed");
       this.animal = result;
       if (result) {
-        if (result.address != '') {
+        if (result.address != "") {
           this.addressData.push({ selected: false, value: result.address });
         }
         if (result.contactList) {
@@ -162,8 +164,6 @@ export class AppComponent {
 }
 
 export interface AddressData {
-
   selected: boolean;
   value: string;
-
 }
