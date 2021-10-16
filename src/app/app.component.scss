@@ -215,18 +215,32 @@ mat-card {
     max-height: 700px;
     overflow-y: auto;
   }
-}
 
-::-webkit-scrollbar {
-  width: 5px; /* width of the entire scrollbar */
-}
+  .cart_summary {
+    .mat-list-base .mat-list-item .mat-line {
+      white-space: normal;
+      overflow: auto;
+      text-overflow: clip;
+      display: block;
+      box-sizing: border-box;
+    }
+  }
 
-::-webkit-scrollbar-track {
-  background: #cfd0d380 0% 0% no-repeat padding-box;
-}
+  .cart-icon {
+    margin-right: 3%;
+  }
 
-::-webkit-scrollbar-thumb {
-  background: #77889380 0% 0% no-repeat padding-box;
-  border: 2px solid #77889380;
-  border-radius: 10px;
+  ::-webkit-scrollbar {
+    width: 5px; /* width of the entire scrollbar */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #cfd0d380 0% 0% no-repeat padding-box;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #77889380 0% 0% no-repeat padding-box;
+    border: 2px solid #77889380;
+    border-radius: 10px;
+  }
 }

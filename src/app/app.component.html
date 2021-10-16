@@ -57,14 +57,30 @@
       <button class="save-button" (click)="openDialog()">Save & Continue</button>
     </div>
     <div class="col-sm-4">
-      <mat-card>
+      <mat-card class="cart_summary">
         <mat-card-content>
-          <div mat-subheader class="list-head">Cart Summery <span class='sub-item'> 10 items</span></div>
+          <div mat-subheader class="list-head">
+            <mat-icon class="cart-icon">shopping_cart</mat-icon>
+            Cart Summery <span class='sub-item'> 10 items</span>
+          </div>
           <mat-list class="items">
             <mat-list-item *ngFor="let cart of cartItems">
-              <div mat-line class='list-content'>{{cart.name}}</div>
-              <div mat-line>Item Code : {{cart.itemCode}} </div>
-              <div class="price">{{cart.price}} </div>
+              <div class="row">
+                <div class="col-sm-2" style="margin: auto;">
+                  <mat-icon>center_focus_strong</mat-icon>
+                </div>
+                <div class="col-sm-8">
+                  <div mat-line class='list-content'>
+                    {{cart.name}}
+                  </div>
+                  <div mat-line>Item Code : {{cart.itemCode}} </div>
+                </div>
+                <div class="col-sm-2">
+                  <div class="price">{{cart.price}} </div>
+                </div>
+              </div>
+
+
             </mat-list-item>
           </mat-list>
         </mat-card-content>
@@ -99,12 +115,12 @@
       <mat-expansion-panel-header>
         <mat-panel-title> 1. Job Reference</mat-panel-title>
       </mat-expansion-panel-header>
-      <div class="form-container">
+      <div class="form-container" style=" display: flex;">
         <label for="joborder" class="form-label job-ref">Order / Job Ref. </label>
         <input type="text" class="form-control" id="joborder" placeholder="Enter Order number or Job Reference"
           required>
       </div>
-      <div class="form-container">
+      <div class="form-container" style=" display: flex;">
         <label for="jobaccount" class="form-label job-ref">Job Account </label>
         <select class="form-select form-control" aria-label="Default select example">
           <option selected>Select Job Account Number</option>
@@ -117,11 +133,11 @@
         <mat-panel-title> 2. Date & Time </mat-panel-title>
       </mat-expansion-panel-header>
       <div class='date-time-title'>The date and time below is the earliest available.</div>
-      <div class="form-container">
+      <div class="form-container" style=" display: flex;">
         <label for="date" class="form-label job-ref">Date </label>
         <input type="date" class="form-control" id="date" required>
       </div>
-      <div class="form-container">
+      <div class="form-container" style=" display: flex;">
         <label for="time" class="form-label job-ref">Time </label>
         <input type="time" class="form-control" id="time" required>
       </div>
