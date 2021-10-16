@@ -5,5 +5,21 @@
     padding: 10px 0px !important;
 } 
 .mat-checkbox-checked.mat-accent .mat-checkbox-background {
-    background-color: #00AFE2 !important;
+    background-color: #00AFE2;
   }
+
+  .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: #00AFE2;
+  }
+
+  .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #00AFE2;
+  }
+
+  @import '~@angular/material/theming';
+
+@mixin mat-ripple-theme($theme) {
+  .mat-ripple-element {
+    background-color: #000000;
+  }
+}

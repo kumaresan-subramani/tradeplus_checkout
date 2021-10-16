@@ -67,9 +67,9 @@ export class DialogComponent {
     return this.data.templateName == "addBranch_Template" ? true : false;
   }
 
-  onNoClick(): void {
+  onNoClick(isCancel: boolean= false): void {
     this.dialogData.contactList = this.getContactdata();
-    this.dialogRef.close(this.dialogData);
+    this.dialogRef.close(isCancel ? this.dialogData: undefined);
   }
 
   createContact(): void {
@@ -82,15 +82,9 @@ export class DialogComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
-        var additem = {
-          name: result.firstName,
-          mailid: result.email,
-          is_SMS: result.is_SMS,
-          number: "$19.32",
-        };
-        this.contactDetails.push(additem);
-        this.searchList.push(additem);
+      if (result) { 
+        this.contactDetails.push(result);
+        this.searchList.push(result);
       }
       console.log(result);
     });
@@ -119,9 +113,11 @@ export class childDialogComponent {
   ngOnInit(): void {}
 
   onNoClick(): void {
+    debugger
     this.dialogRef.close(this.contactDetails);
   }
   createContact() {
+    debugger
     this.dialogRef.close(this.contactDetails);
   }
 }

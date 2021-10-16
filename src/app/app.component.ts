@@ -16,6 +16,13 @@ export class AppComponent {
   ACTIVE_ITEM: string = "active-box";
   public isDeliveryBox: boolean = true;
   public selectedAddress: any;
+  public branchDetails: any = [
+    {
+      location_name: 'Riccarton',
+      location_address: '2-20 MANDEVILLE ST, Christchurch',
+      phone: '+2 9666 2800'
+    }
+  ]
   addressData: AddressData[] = [
     {
       selected: true,
@@ -139,7 +146,7 @@ export class AppComponent {
       console.log("The dialog was closed");
       this.animal = result;
       if (result) {
-        if (result.address != "") {
+        if (result.address && result.address != "") {
           this.addressData.push({ selected: false, value: result.address });
         }
         if (result.contactList) {
@@ -160,6 +167,11 @@ export class AppComponent {
     addr.selected = true;
     this.selectedAddress.selected = false;
     this.selectedAddress = this.addressData.filter((item) => item.selected)[0];
+  }
+  removeContact(removeDetail: any) {
+    debugger
+    var index = this.contactDetails.indexOf(removeDetail);
+    this.contactDetails.splice(index, 1);
   }
 }
 

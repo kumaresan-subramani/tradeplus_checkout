@@ -249,3 +249,29 @@ mat-card {
   color: #973937;
   font-weight: 600;
 }
+
+.branch-container {
+  border: 1px solid #77889380;
+  border-radius: 2px;
+  opacity: 1;
+  padding: 15px;
+  .mat-card-subtitle {
+    margin-bottom: 4px;
+    font-size: 12px;
+  }
+}
+
+.branch-container .mat-card-title {
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.branch-container .branch-link {
+  font-size: 12px;
+}
+.branch-container .hour-label-left {
+  width: 15%;
+  position: relative;
+  display: inline-block;
+}
