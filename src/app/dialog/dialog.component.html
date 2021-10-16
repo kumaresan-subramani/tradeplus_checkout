@@ -12,7 +12,7 @@
         <div class="row" style="margin-bottom: 2%;">
             <div class='col-sm-6 contact-list-title'>You can add upto 4 contacts</div>
             <div class='col-sm-6'>
-                <button mat-button (click)="createChildContact()" class="createContact">Create Contact</button>
+                <button mat-button (click)="createContact()" class="createContact">Create Contact</button>
             </div>
         </div>
         <div class="dialog-form-container">
@@ -72,7 +72,7 @@
             <button mat-button (click)="onNoClick()" class="cancel_button">Cancel</button>
         </div>
         <div class='col-sm-6'>
-            <button mat-button class="crete_button" (click)="create()" [mat-dialog-close]="data.animal" cdkFocusInitial>Create
+            <button mat-button class="crete_button" [mat-dialog-close]="data.animal" cdkFocusInitial>Create
             </button>
         </div>
     </div>

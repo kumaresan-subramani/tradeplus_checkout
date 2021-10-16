@@ -8,6 +8,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
 import { MatListModule } from "@angular/material/list";
 import { FormsModule } from "@angular/forms";
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import {
   DialogComponent,
@@ -28,6 +29,7 @@ import { DemoMaterialModule } from "./material.module";
     MatListModule,
     DemoMaterialModule,
     FormsModule,
+    MatCheckboxModule,
   ],
   exports: [
     MatCardModule,
@@ -35,6 +37,7 @@ import { DemoMaterialModule } from "./material.module";
     MatIconModule,
     MatInputModule,
     MatListModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -11,15 +11,28 @@
 
 .delivery-box,
 .collect-box {
-  border: 1px solid #707070;
-  border-radius: 20px;
+  border: 2px solid #c3c1c1c4;
+  border-radius: 10px;
   opacity: 1;
-  background: #e0e1e233 0% 0% no-repeat padding-box;
-  width: 120px;
-  height: 90px;
-  display: inline-flex;
+  background: #e0e1e233 0% 0% no-repeat padding-box; 
+  display: inline-flex; 
+  padding: 50px;
 }
 
+.delivery-box.active-box,
+.collect-box.active-box { 
+  background: #E0E1E233 0% 0% no-repeat padding-box;
+  border: 2px solid #00AFE2;
+  border-radius: 20px;
+  opacity: 1;
+  border-radius: 10px 0px 10px 10px;
+}
+.delivery-box .mat-checkbox.active-checkbox,
+.collect-box .mat-checkbox.active-checkbox {
+  right: 17px;
+  position: absolute;
+  top: 13px; 
+}
 .card-container {
   vertical-align: middle;
   align-items: center;
@@ -72,12 +85,16 @@
 
 .delivery-accordion .form-control {
   display: inline-block;
-  width: 75%;
+  width: 100%;
   border: 1px solid #77889380;
   border-radius: 2px;
   opacity: 1;
   color: #495a64;
 }
+.delivery-accordion textarea.form-control {
+  height: 0px;
+}
+
 .delivery-accordion .job-ref {
   width: 25%;
   text-align: left;
@@ -174,4 +191,9 @@
 
 .mat_icon_color {
   color: #495a64;
+}
+
+a:not([href]):not([class]), a:not([href]):not([class]):hover {
+  color: #0d6efd;
+  cursor: pointer;
 }
