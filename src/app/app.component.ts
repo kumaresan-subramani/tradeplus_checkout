@@ -12,7 +12,24 @@ export class AppComponent {
   title = 'trade-plus';
   public animal!: string;
   name!: string;
-
+  
+  ACTIVE_ITEM: string = 'active-box';
+  public isDeliveryBox: boolean = true;
+  public selectedAddress: any;
+  addressData: AddressData[] = [
+    {
+      selected: true, 
+      value: '810 Great South Road, Penrose Auckland'
+    },
+    {
+      selected: false, 
+      value: '1 Wordsworth Street, Rolleston Selwyn District 7614'
+    },
+    {
+      selected: false, 
+      value: '22/1 Glenside Crescent, 22/1 Glenside Crescent,'
+    }
+  ];
   cartItems: any = [
     {
       name: 'Classic Courtyard Flagstone paver',
@@ -74,7 +91,8 @@ export class AppComponent {
   constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    // this.openDialog();
+    // this.openDialog(); 
+    this.selectedAddress = this.addressData.filter((item)=>item.selected)[0];
   }
 
   openDialog(tempName?: string): void {
@@ -93,4 +111,24 @@ export class AppComponent {
       this.animal = result;
     });
   }
+
+  selectBox(isDelivery: boolean) {
+    this.isDeliveryBox = isDelivery;
+  }
+  addressChange(args: any) { 
+    this.selectedAddress.selected = false;
+    this.selectedAddress = this.addressData.filter((item)=>item.selected)[0];
+  }
+  addressClick(addr: AddressData) {
+    addr.selected = true;
+    this.selectedAddress.selected = false;
+    this.selectedAddress = this.addressData.filter((item)=>item.selected)[0];
+  }
+}
+
+export interface AddressData {
+
+  selected: boolean;
+  value: string;
+
 }

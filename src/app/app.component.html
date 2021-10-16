@@ -13,19 +13,31 @@
             <div class="card-container">
               <mat-card>
                 <mat-card-content class="box-container">
-                  <div class="delivery-box"></div>
+                  <div class="delivery-box" [ngClass]="isDeliveryBox ? ACTIVE_ITEM : ''" (click)="selectBox(true)">
+                      <ng-template [ngIf]="isDeliveryBox">
+                        <mat-checkbox class="active-checkbox" [(ngModel)]="isDeliveryBox"></mat-checkbox>
+                      </ng-template>
+                  </div>
+                  <div>
                   <mat-card-title>Delivery</mat-card-title>
                   <mat-card-subtitle>We deliver right to</mat-card-subtitle>
                   <mat-card-subtitle>your door</mat-card-subtitle>
+                </div>
                 </mat-card-content>
               </mat-card>
 
               <mat-card>
                 <mat-card-content class="box-container">
-                  <div class="collect-box"></div>
+                  <div class="collect-box" [ngClass]="isDeliveryBox ? '' : ACTIVE_ITEM" (click)="selectBox(false)">
+                      <ng-template [ngIf]="!isDeliveryBox">
+                          <mat-checkbox class="active-checkbox" [(ngModel)]="!isDeliveryBox"></mat-checkbox>
+                      </ng-template>
+                  </div>
+                  <div>
                   <mat-card-title>Click & Collect</mat-card-title>
                   <mat-card-subtitle>Collect form your</mat-card-subtitle>
                   <mat-card-subtitle>nearest branch</mat-card-subtitle>
+                </div>
                 </mat-card-content>
               </mat-card>
             </div>
@@ -99,33 +111,21 @@
     </mat-expansion-panel>
     <mat-expansion-panel [expanded]="true">
       <mat-expansion-panel-header>
-        <mat-panel-title> 3. Address </mat-panel-title>
+        <mat-panel-title> {{ isDeliveryBox ? '3. Address' : 'Location' }} </mat-panel-title>
       </mat-expansion-panel-header>
       <div class='address-title'>Most recent develiry address </div>
       <div class="form-container">
-        <textarea class="form-control" id="address" required></textarea>
+        <textarea class="form-control" readonly [(ngModel)]="selectedAddress.value" id="address" required></textarea>
       </div>
       <div class="form-container">
         <div class='choose-address-title'>Choose an address from the list below or select Add Address <a
             style="justify-content:right">
             <span (click)="openDialog('deliveryAddress_Template')">Add Address</span></a></div>
         <div style="border: 1px solid #77889380;padding: 10px">
-          <div>
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-              810 Great South Road, Penrose Auckland
-            </label>
-          </div>
-          <div>
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-              810 Great South Road, Penrose Auckland
-            </label>
-          </div>
-          <div>
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-              810 Great South Road, Penrose Auckland
+          <div *ngFor="let address of addressData; index as i">
+            <input class="form-check-input" type="radio" (change)="addressChange($event)" [ngModel]="address.selected" (click)="addressClick(address)" name="flexRadioDefault{{i}}" id="flexRadioDefault{{i}}" />
+            <label class="form-check-label" for="flexRadioDefault{{i}}">
+              {{address.value}}
             </label>
           </div>
         </div>
@@ -133,7 +133,7 @@
     </mat-expansion-panel>
     <mat-expansion-panel [expanded]="true">
       <mat-expansion-panel-header>
-        <mat-panel-title> 4. Contact Notifications </mat-panel-title>
+        <mat-panel-title> {{isDeliveryBox ? '4. Contact Notifications' : 'Contact' }} </mat-panel-title>
       </mat-expansion-panel-header>
       <p style="font-weight: bold;color: #495A64;">Contact Details<span class="marker">*</span></p>
       <mat-list style="margin-bottom: 5px;">
@@ -161,7 +161,7 @@
     </mat-expansion-panel>
     <mat-expansion-panel [expanded]="true">
       <mat-expansion-panel-header>
-        <mat-panel-title> 5. Delivery Instructions </mat-panel-title>
+        <mat-panel-title> {{isDeliveryBox ? '5. Delivery Instructions' : '5. Additional Instructions' }} </mat-panel-title>
       </mat-expansion-panel-header>
       <div>
         <textarea class="form-control" style="width: 100%;" id="Instructions"
