@@ -21,18 +21,20 @@
 
 .delivery-box.active-box,
 .collect-box.active-box {
-  background: #E0E1E233 0% 0% no-repeat padding-box;
-  border: 2px solid #00AFE2;
+  background: #e0e1e233 0% 0% no-repeat padding-box;
+  border: 2px solid #00afe2;
   border-radius: 20px;
   opacity: 1;
   border-radius: 10px 0px 10px 10px;
 }
+
 .delivery-box .mat-checkbox.active-checkbox,
 .collect-box .mat-checkbox.active-checkbox {
   right: 17px;
   position: absolute;
   top: 13px;
 }
+
 .card-container {
   vertical-align: middle;
   align-items: center;
@@ -40,6 +42,7 @@
   display: flex;
   justify-content: center;
 }
+
 .mat-card-header .card-title .mat-card-title {
   margin: 0px;
   text-align: center;
@@ -73,7 +76,10 @@
   margin: 1px !important;
 }
 
-.delivery-accordion .mat-expansion-panel .mat-expansion-panel-header .mat-expansion-panel-header-title {
+.delivery-accordion
+  .mat-expansion-panel
+  .mat-expansion-panel-header
+  .mat-expansion-panel-header-title {
   text-align: left;
   font: normal normal bold 13px/20px Niveau Grotesk;
   letter-spacing: 0px;
@@ -92,6 +98,7 @@
   color: #495a64;
   font-size: 14px;
 }
+
 .delivery-accordion textarea.form-control {
   height: 0px;
 }
@@ -117,7 +124,10 @@
   height: 30px;
 }
 
-.delivery-accordion .mat-expansion-panel.job-reference-panel .mat-expansion-panel-content .mat-expansion-panel-body {
+.delivery-accordion
+  .mat-expansion-panel.job-reference-panel
+  .mat-expansion-panel-content
+  .mat-expansion-panel-body {
   padding: 16px 24px 16px;
 }
 
@@ -126,14 +136,6 @@
 }
 
 .mat-expansion-panel-body .form-container {
-  padding-bottom: 10px;
-}
-
-.delivery-accordion .date-time-title {
-  font-size: 13px;
-  color: #495a64;
-  letter-spacing: 0px;
-  opacity: 1;
   padding-bottom: 10px;
 }
 
@@ -156,6 +158,13 @@
     color: #495a64;
     letter-spacing: 0px;
     opacity: 1;
+  }
+  .date-time-title {
+    font-size: 13px;
+    color: #495a64;
+    letter-spacing: 0px;
+    opacity: 1;
+    padding-bottom: 10px;
   }
 }
 
@@ -259,19 +268,24 @@ mat-card {
     margin-bottom: 4px;
     font-size: 12px;
   }
+  .mat-card-title {
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  .branch-link {
+    font-size: 12px;
+  }
+  .hour-label-left {
+    width: 15%;
+    position: relative;
+    display: inline-block;
+  }
 }
 
-.branch-container .mat-card-title {
-  font-size: 11px;
-  font-weight: bold;
-  margin-bottom: 4px;
-}
-
-.branch-container .branch-link {
-  font-size: 12px;
-}
-.branch-container .hour-label-left {
-  width: 15%;
-  position: relative;
-  display: inline-block;
+mat-radio-group {
+  display: inline-grid;
+  .mat-radio-button {
+    padding-bottom: 2%;
+  }
 }

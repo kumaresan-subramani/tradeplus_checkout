@@ -156,33 +156,35 @@
               style="justify-content:right">
               <span (click)="openDialog('deliveryAddress_Template')">Add Address</span></a></div>
           <div style="border: 1px solid #77889380;padding: 10px">
-              <mat-radio-group
-              aria-labelledby="example-radio-group-label"
-              class="example-radio-group"
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
               [(ngModel)]="selectedAddress.value">
-              <mat-radio-button *ngFor="let address of addressData" [value]="address.value" (change)="selectedAddress=address">
+              <mat-radio-button *ngFor="let address of addressData" [value]="address.value"
+                (change)="selectedAddress=address">
                 {{address.value}}
               </mat-radio-button>
             </mat-radio-group>
           </div>
         </div>
-    </ng-template>
-    <ng-template [ngIf]="!isDeliveryBox">
-        <div class='address-title'>Branch Details <span class="required-branch">*</span>  <a style="justify-content:right">
+      </ng-template>
+      <ng-template [ngIf]="!isDeliveryBox">
+        <div class='address-title'>Branch Details <span class="required-branch">*</span> <a
+            style="justify-content:right">
             <span (click)="openDialog('deliveryAddress_Template')">Add Branch</span></a> </div>
-         <div class="branch-container" *ngFor="let branch of branchDetails">
-            <mat-card-title style="font-size: 11px;font-weight: bold;">{{branch.location_name}}</mat-card-title>
-            <mat-card-subtitle>{{branch.location_address}}</mat-card-subtitle>
-            <mat-card-subtitle>Phone:{{branch.phone}}</mat-card-subtitle>
-            <a class='branch-link'>View Less</a>
-            <div class="branch-hour-container">
-                <mat-card-title>Opening Hours</mat-card-title>
-                <mat-card-subtitle><span class="hour-label-left">Mon - Fri</span><span>07:30 AM - 05:00 PM</span></mat-card-subtitle>
-                <mat-card-subtitle><span class="hour-label-left">Sat</span><span>08:00 AM - 12:00 PM</span></mat-card-subtitle>
-                <mat-card-subtitle><span class="hour-label-left">Sun</span><span>closed</span></mat-card-subtitle>
-            </div>
-         </div>
-    </ng-template>
+        <div class="branch-container" *ngFor="let branch of branchDetails">
+          <mat-card-title style="font-size: 11px;font-weight: bold;">{{branch.location_name}}</mat-card-title>
+          <mat-card-subtitle>{{branch.location_address}}</mat-card-subtitle>
+          <mat-card-subtitle>Phone:{{branch.phone}}</mat-card-subtitle>
+          <a class='branch-link'>View Less</a>
+          <div class="branch-hour-container">
+            <mat-card-title>Opening Hours</mat-card-title>
+            <mat-card-subtitle><span class="hour-label-left">Mon - Fri</span><span>07:30 AM - 05:00 PM</span>
+            </mat-card-subtitle>
+            <mat-card-subtitle><span class="hour-label-left">Sat</span><span>08:00 AM - 12:00 PM</span>
+            </mat-card-subtitle>
+            <mat-card-subtitle><span class="hour-label-left">Sun</span><span>closed</span></mat-card-subtitle>
+          </div>
+        </div>
+      </ng-template>
     </mat-expansion-panel>
     <mat-expansion-panel [expanded]="true">
       <mat-expansion-panel-header>
@@ -201,10 +203,12 @@
           </div>
           <div style="float:right">
             <span>
-              <mat-icon aria-hidden="false" class="mat_icon_color" aria-label="edit_icon" style="cursor: pointer">edit</mat-icon>
+              <mat-icon aria-hidden="false" class="mat_icon_color" aria-label="edit_icon" style="cursor: pointer">edit
+              </mat-icon>
             </span>
             <span>
-              <mat-icon aria-hidden="false" class="mat_icon_color" aria-label=" delete_icon" (click)="removeContact(details)" style="cursor: pointer">delete</mat-icon>
+              <mat-icon aria-hidden="false" class="mat_icon_color" aria-label=" delete_icon"
+                (click)="removeContact(details)" style="cursor: pointer">delete</mat-icon>
             </span>
           </div>
         </mat-list-item>
