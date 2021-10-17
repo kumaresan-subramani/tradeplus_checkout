@@ -144,7 +144,7 @@
     </mat-expansion-panel>
     <mat-expansion-panel [expanded]="true">
       <mat-expansion-panel-header>
-        <mat-panel-title> {{ isDeliveryBox ? '3. Address' : 'Location' }} </mat-panel-title>
+        <mat-panel-title> {{ isDeliveryBox ? '3. Address' : '3.Location' }} </mat-panel-title>
       </mat-expansion-panel-header>
       <ng-template [ngIf]="isDeliveryBox">
         <div class='address-title'>Most recent delivery address </div>
@@ -188,7 +188,7 @@
     </mat-expansion-panel>
     <mat-expansion-panel [expanded]="true">
       <mat-expansion-panel-header>
-        <mat-panel-title> {{isDeliveryBox ? '4. Contact Notifications' : 'Contact' }} </mat-panel-title>
+        <mat-panel-title> {{isDeliveryBox ? '4. Contact Notifications' : '4. Contact' }} </mat-panel-title>
       </mat-expansion-panel-header>
       <p style="font-weight: bold;color: #495A64;">Contact Details<span class="marker">*</span></p>
       <mat-list style="margin-bottom: 5px;">
