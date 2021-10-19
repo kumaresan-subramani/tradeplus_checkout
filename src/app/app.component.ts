@@ -18,11 +18,11 @@ export class AppComponent {
   public selectedAddress: any;
   public branchDetails: any = [
     {
-      location_name: 'Riccarton',
-      location_address: '2-20 MANDEVILLE ST, Christchurch',
-      phone: '+2 9666 2800'
-    }
-  ]
+      location_name: "Riccarton",
+      location_address: "2-20 MANDEVILLE ST, Christchurch",
+      phone: "+2 9666 2800",
+    },
+  ];
   addressData: AddressData[] = [
     {
       selected: true,
@@ -144,13 +144,17 @@ export class AppComponent {
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log("The dialog was closed");
-      this.animal = result;
-      if (result) {
-        if (result.address && result.address != "") {
-          this.addressData.push({ selected: false, value: result.address });
-        }
-        if (result.contactList) {
-          this.contactDetails = result.contactList;
+      if (result.template == "addBranch_Template") {
+        this.branchDetails[0] = result.branch;
+      } else {
+        this.animal = result;
+        if (result) {
+          if (result.address && result.address != "") {
+            this.addressData.push({ selected: false, value: result.address });
+          }
+          if (result.contactList) {
+            this.contactDetails = result.contactList;
+          }
         }
       }
     });
@@ -169,7 +173,7 @@ export class AppComponent {
     this.selectedAddress = this.addressData.filter((item) => item.selected)[0];
   }
   removeContact(removeDetail: any) {
-    debugger
+    debugger;
     var index = this.contactDetails.indexOf(removeDetail);
     this.contactDetails.splice(index, 1);
   }
