@@ -16,7 +16,15 @@
   opacity: 1;
   background: #e0e1e233 0% 0% no-repeat padding-box;
   display: inline-flex;
-  padding: 50px;
+  padding: 36px;
+  .delivery-img {
+    width: 90px;
+    height: 50px;
+  }
+  .pickup-img {
+    width: 75px;
+    height: 50px;
+  }
 }
 
 .delivery-box.active-box,
@@ -289,3 +297,4 @@ mat-radio-group {
     padding-bottom: 2%;
   }
 }
+ 

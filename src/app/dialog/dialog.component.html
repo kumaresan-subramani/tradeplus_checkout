@@ -20,11 +20,11 @@
                 placeholder="search by Name or Phone" required>
         </div>
         <mat-list style="margin-bottom: 5px;">
-            <mat-list-item *ngFor="let details of contactDetails" class="contact_list_seperator">
+            <mat-list-item *ngFor="let details of contactListDetails" class="contact_list_seperator">
                 <!-- <div class="mat-list-text">s</div> -->
                 <div class="row" style="width: 100%;">
                     <div class="col-sm-2" style="padding-top: 5%;">
-                        <mat-checkbox [(ngModel)]="details.is_SMS"></mat-checkbox>
+                        <mat-checkbox [(ngModel)]="details.isActive"></mat-checkbox>
                     </div>
                     <div class="col-sm-8" style="padding-top: 3%;">
                         <div mat-line class='list-content'>{{details.firstName}} {{details.lastName}}</div>
@@ -90,7 +90,7 @@
             <span class="input-group-text" id="basic-addon1">
                 <mat-icon matPrefix>location_on</mat-icon>
             </span>
-            <input type="text" class="form-control" placeholder="Search store by address, city or postcode"  (input)="searchBranch($event)"
+            <input type="text" class="form-control" placeholder="Search store by address, city or postcode"
                 aria-describedby="basic-addon1">
             <span class="input-group-text">
                 <mat-icon matPrefix>search</mat-icon>
@@ -99,30 +99,23 @@
         <h4 class="sub_header">Nearest Branch</h4>
         <div style="margin-bottom: 5%;">
             <mat-accordion class="example-headers-align" multi>
-                <mat-expansion-panel class="panel" [expanded]="i==0?true:false" *ngFor="let branch of branchList;let i=index;" >
+                <mat-expansion-panel class="panel" [expanded]="true">
                     <mat-expansion-panel-header>
                         <mat-panel-title style="display: block;">
-                            <div class="row">
-                                <div class="col-sm-10">
-                                    <p class="panel_header">{{branch.location_name}} &nbsp;
-                                        <mat-chip-list aria-label="Fish selection">
-                                            <mat-chip color="primary" selected>{{branch.distance}}</mat-chip>
-                                        </mat-chip-list>
-                                    </p>
-                                    <p>{{branch.location_address}}</p>
-                                </div>
-                                <div class="col-sm-2" style="margin: auto;">
-                                    <button mat-raised-button class="select" (click)="selectBranch(branch)" >Select</button>
-                                </div>
-                            </div>
+                            <p class="panel_header">Silverwater &nbsp;
+                                <mat-chip-list aria-label="Fish selection">
+                                    <mat-chip color="primary" selected>2.3 km</mat-chip>
+                                </mat-chip-list>
+                            </p>
+                            <p>Silverwater 34 Buffalo Road, Hamilton QLD 4007</p>
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <div class="container branch_container">
                         <div class="row">
                             <div class="col">
                                 <p class="col_header">Contact Details</p>
-                                <p>Email: {{branch.email}}</p>
-                                <p>Phone: {{branch.phone}}</p>
+                                <p>Email: arunprasad1496@gmaill.com</p>
+                                <p>Phone: +61 9789117240</p>
                             </div>
                             <div class="col">
                                 <p class="col_header"> Opening Hours</p>
@@ -138,6 +131,71 @@
                         </div>
                     </div>
                 </mat-expansion-panel>
+                <mat-expansion-panel [expanded]="false" class="panel">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title style="display: block;">
+                            <p class="panel_header">Silverwater &nbsp;
+                                <mat-chip-list aria-label="Fish selection">
+                                    <mat-chip color="primary" selected>2.3 km</mat-chip>
+                                </mat-chip-list>
+                            </p>
+                            <p>Silverwater 34 Buffalo Road, Hamilton QLD 4007</p>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="container branch_container">
+                        <div class="row">
+                            <div class="col">
+                                <p class="col_header">Contact Details</p>
+                                <p>Email: arunprasad1496@gmaill.com</p>
+                                <p>Phone: +61 9789117240</p>
+                            </div>
+                            <div class="col">
+                                <p class="col_header"> Opening Hours</p>
+                                <p>Mon - Fri</p>
+                                <p>Sat</p>
+                                <p>Sun</p>
+                            </div>
+                            <div class="col" style="margin: auto;">
+                                <p>07:30 AM - 05:00 PM</p>
+                                <p>09:30 AM - 06:00 PM</p>
+                                <p style="color: red;">Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel [expanded]="false" class="panel">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title style="display: block;">
+                            <p class="panel_header">Silverwater &nbsp;
+                                <mat-chip-list aria-label="Fish selection">
+                                    <mat-chip color="primary" selected>2.3 km</mat-chip>
+                                </mat-chip-list>
+                            </p>
+                            <p>Silverwater 34 Buffalo Road, Hamilton QLD 4007</p>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="container branch_container">
+                        <div class="row">
+                            <div class="col">
+                                <p class="col_header">Contact Details</p>
+                                <p>Email: arunprasad1496@gmaill.com</p>
+                                <p>Phone: +61 9789117240</p>
+                            </div>
+                            <div class="col">
+                                <p class="col_header"> Opening Hours</p>
+                                <p>Mon - Fri</p>
+                                <p>Sat</p>
+                                <p>Sun</p>
+                            </div>
+                            <div class="col" style="margin: auto;">
+                                <p>07:30 AM - 05:00 PM</p>
+                                <p>09:30 AM - 06:00 PM</p>
+                                <p style="color: red;">Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+
             </mat-accordion>
         </div>
         <!-- <div mat-dialog-actions> -->
