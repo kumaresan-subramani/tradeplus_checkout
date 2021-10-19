@@ -36,14 +36,40 @@ export class DialogComponent {
     address: "",
     contactList: null,
   };
+  branchList: any = [
+    {
+      location_name: "Silverwater",
+      location_address: "Silverwater 34 Buffalo Road, Hamilton QLD 4007",
+      distance: "2.3 km",
+      email: " arunprasad1496@gmaill.com",
+      phone: "+61 9789117240",
+    },
+    {
+      location_name: "Goldwater",
+      location_address: "Goldwater 34 Buffalo Road, Hamilton QLD 4007",
+      distance: "2.3 km",
+      email: " arunprasad1496@gmaill.com",
+      phone: "+61 9789117240",
+    },
+    {
+      location_name: "Whitefield",
+      location_address: "Whitefield 34 Buffalo Road, Hamilton QLD 4007",
+      distance: "2.3 km",
+      email: " arunprasad1496@gmaill.com",
+      phone: "+61 9789117240",
+    },
+  ];
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
   searchList: any = [];
+  branchSearchList: any = [];
+
   ngOnInit(): void {
     this.searchList = [...this.contactDetails];
+    this.branchSearchList = this.branchList;
   }
 
   getContactdata() {
@@ -67,9 +93,9 @@ export class DialogComponent {
     return this.data.templateName == "addBranch_Template" ? true : false;
   }
 
-  onNoClick(isCancel: boolean= false): void {
+  onNoClick(isCancel: boolean = false): void {
     this.dialogData.contactList = this.getContactdata();
-    this.dialogRef.close(isCancel ? this.dialogData: undefined);
+    this.dialogRef.close(isCancel ? this.dialogData : undefined);
   }
 
   createContact(): void {
@@ -82,12 +108,28 @@ export class DialogComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (result) { 
+      if (result) {
         this.contactDetails.push(result);
         this.searchList.push(result);
       }
       console.log(result);
     });
+  }
+
+  selectBranch(branch: any) {
+    let data: any = {
+      template: "addBranch_Template",
+      branch: branch,
+    };
+    this.dialogRef.close(data);
+  }
+
+  searchBranch(args: any) {
+    var value = args.target.value;
+    this.branchList = this.branchSearchList.filter((item: any) =>{
+      return item.location_name.includes(value)
+    }
+    );
   }
 }
 
@@ -113,11 +155,11 @@ export class childDialogComponent {
   ngOnInit(): void {}
 
   onNoClick(): void {
-    debugger
+    debugger;
     this.dialogRef.close(this.contactDetails);
   }
   createContact() {
-    debugger
+    debugger;
     this.dialogRef.close(this.contactDetails);
   }
 }

@@ -90,7 +90,7 @@
             <span class="input-group-text" id="basic-addon1">
                 <mat-icon matPrefix>location_on</mat-icon>
             </span>
-            <input type="text" class="form-control" placeholder="Search store by address, city or postcode"
+            <input type="text" class="form-control" placeholder="Search store by address, city or postcode"  (input)="searchBranch($event)"
                 aria-describedby="basic-addon1">
             <span class="input-group-text">
                 <mat-icon matPrefix>search</mat-icon>
@@ -99,23 +99,30 @@
         <h4 class="sub_header">Nearest Branch</h4>
         <div style="margin-bottom: 5%;">
             <mat-accordion class="example-headers-align" multi>
-                <mat-expansion-panel class="panel" [expanded]="true">
+                <mat-expansion-panel class="panel" [expanded]="i==0?true:false" *ngFor="let branch of branchList;let i=index;" >
                     <mat-expansion-panel-header>
                         <mat-panel-title style="display: block;">
-                            <p class="panel_header">Silverwater &nbsp;
-                                <mat-chip-list aria-label="Fish selection">
-                                    <mat-chip color="primary" selected>2.3 km</mat-chip>
-                                </mat-chip-list>
-                            </p>
-                            <p>Silverwater 34 Buffalo Road, Hamilton QLD 4007</p>
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    <p class="panel_header">{{branch.location_name}} &nbsp;
+                                        <mat-chip-list aria-label="Fish selection">
+                                            <mat-chip color="primary" selected>{{branch.distance}}</mat-chip>
+                                        </mat-chip-list>
+                                    </p>
+                                    <p>{{branch.location_address}}</p>
+                                </div>
+                                <div class="col-sm-2" style="margin: auto;">
+                                    <button mat-raised-button class="select" (click)="selectBranch(branch)" >Select</button>
+                                </div>
+                            </div>
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <div class="container branch_container">
                         <div class="row">
                             <div class="col">
                                 <p class="col_header">Contact Details</p>
-                                <p>Email: arunprasad1496@gmaill.com</p>
-                                <p>Phone: +61 9789117240</p>
+                                <p>Email: {{branch.email}}</p>
+                                <p>Phone: {{branch.phone}}</p>
                             </div>
                             <div class="col">
                                 <p class="col_header"> Opening Hours</p>
@@ -131,71 +138,6 @@
                         </div>
                     </div>
                 </mat-expansion-panel>
-                <mat-expansion-panel [expanded]="false" class="panel">
-                    <mat-expansion-panel-header>
-                        <mat-panel-title style="display: block;">
-                            <p class="panel_header">Silverwater &nbsp;
-                                <mat-chip-list aria-label="Fish selection">
-                                    <mat-chip color="primary" selected>2.3 km</mat-chip>
-                                </mat-chip-list>
-                            </p>
-                            <p>Silverwater 34 Buffalo Road, Hamilton QLD 4007</p>
-                        </mat-panel-title>
-                    </mat-expansion-panel-header>
-                    <div class="container branch_container">
-                        <div class="row">
-                            <div class="col">
-                                <p class="col_header">Contact Details</p>
-                                <p>Email: arunprasad1496@gmaill.com</p>
-                                <p>Phone: +61 9789117240</p>
-                            </div>
-                            <div class="col">
-                                <p class="col_header"> Opening Hours</p>
-                                <p>Mon - Fri</p>
-                                <p>Sat</p>
-                                <p>Sun</p>
-                            </div>
-                            <div class="col" style="margin: auto;">
-                                <p>07:30 AM - 05:00 PM</p>
-                                <p>09:30 AM - 06:00 PM</p>
-                                <p style="color: red;">Closed</p>
-                            </div>
-                        </div>
-                    </div>
-                </mat-expansion-panel>
-                <mat-expansion-panel [expanded]="false" class="panel">
-                    <mat-expansion-panel-header>
-                        <mat-panel-title style="display: block;">
-                            <p class="panel_header">Silverwater &nbsp;
-                                <mat-chip-list aria-label="Fish selection">
-                                    <mat-chip color="primary" selected>2.3 km</mat-chip>
-                                </mat-chip-list>
-                            </p>
-                            <p>Silverwater 34 Buffalo Road, Hamilton QLD 4007</p>
-                        </mat-panel-title>
-                    </mat-expansion-panel-header>
-                    <div class="container branch_container">
-                        <div class="row">
-                            <div class="col">
-                                <p class="col_header">Contact Details</p>
-                                <p>Email: arunprasad1496@gmaill.com</p>
-                                <p>Phone: +61 9789117240</p>
-                            </div>
-                            <div class="col">
-                                <p class="col_header"> Opening Hours</p>
-                                <p>Mon - Fri</p>
-                                <p>Sat</p>
-                                <p>Sun</p>
-                            </div>
-                            <div class="col" style="margin: auto;">
-                                <p>07:30 AM - 05:00 PM</p>
-                                <p>09:30 AM - 06:00 PM</p>
-                                <p style="color: red;">Closed</p>
-                            </div>
-                        </div>
-                    </div>
-                </mat-expansion-panel>
-
             </mat-accordion>
         </div>
         <!-- <div mat-dialog-actions> -->
