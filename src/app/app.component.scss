@@ -16,7 +16,15 @@
   opacity: 1;
   background: #e0e1e233 0% 0% no-repeat padding-box;
   display: inline-flex;
-  padding: 50px;
+  padding: 36px;
+  .delivery-img {
+    width: 90px;
+    height: 50px;
+  }
+  .pickup-img {
+    width: 75px;
+    height: 50px;
+  }
 }
 
 .delivery-box.active-box,
@@ -288,4 +296,19 @@ mat-radio-group {
   .mat-radio-button {
     padding-bottom: 2%;
   }
+}
+ 
+
+input[type="date"]::-webkit-calendar-picker-indicator { 
+  opacity: 1;
+  display: block;
+  background: url('./../assets/icons/date.svg') no-repeat;
+  background-size: 15px 15px;
+  top: 3px;
+  left: 5px;
+  border-width: thin;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  justify-content: center;
 }

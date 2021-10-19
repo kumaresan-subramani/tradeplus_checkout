@@ -14,6 +14,7 @@
               <mat-card>
                 <mat-card-content class="box-container">
                   <div class="delivery-box" [ngClass]="isDeliveryBox ? ACTIVE_ITEM : ''" (click)="selectBox(true)">
+                    <img class="delivery-img" src="./../assets/icons/delivery.svg" />
                     <ng-template [ngIf]="isDeliveryBox">
                       <mat-checkbox class="active-checkbox" [(ngModel)]="isDeliveryBox"></mat-checkbox>
                     </ng-template>
@@ -29,6 +30,7 @@
               <mat-card>
                 <mat-card-content class="box-container">
                   <div class="collect-box" [ngClass]="isDeliveryBox ? '' : ACTIVE_ITEM" (click)="selectBox(false)">
+                      <img class="pickup-img" src="./../assets/icons/pickup.svg" />
                     <ng-template [ngIf]="!isDeliveryBox">
                       <mat-checkbox class="active-checkbox" [(ngModel)]="!isDeliveryBox"></mat-checkbox>
                     </ng-template>
@@ -192,26 +194,28 @@
       </mat-expansion-panel-header>
       <p style="font-weight: bold;color: #495A64;">Contact Details<span class="marker">*</span></p>
       <mat-list style="margin-bottom: 5px;">
-        <mat-list-item *ngFor="let details of contactDetails" class="contact_list_seperator">
-          <div mat-line class='list-content'>{{details.firstName}} {{details.lastName}}</div>
-          <div mat-line>
-            <span>{{details.email}} &nbsp;|&nbsp;</span>
-            <span>{{details.mobileNo}} &nbsp;|&nbsp;</span>
-            <span>
-              <mat-checkbox class="example-margin" [checked]="details.is_SMS">SMS</mat-checkbox>
-            </span>
-          </div>
-          <div style="float:right">
-            <span>
-              <mat-icon aria-hidden="false" class="mat_icon_color" aria-label="edit_icon" style="cursor: pointer">edit
-              </mat-icon>
-            </span>
-            <span>
-              <mat-icon aria-hidden="false" class="mat_icon_color" aria-label=" delete_icon"
-                (click)="removeContact(details)" style="cursor: pointer">delete</mat-icon>
-            </span>
-          </div>
-        </mat-list-item>
+          <ng-template *ngFor="let details of contactDetails" [ngIf]="details && details.isActive">
+              <mat-list-item class="contact_list_seperator">
+                  <div mat-line class='list-content'>{{details.firstName}} {{details.lastName}}</div>
+                  <div mat-line>
+                    <span>{{details.email}} &nbsp;|&nbsp;</span>
+                    <span>{{details.mobileNo}} &nbsp;|&nbsp;</span>
+                    <span>
+                      <mat-checkbox class="example-margin" [(ngModel)]="details.is_SMS">SMS</mat-checkbox>
+                    </span>
+                  </div>
+                  <div style="float:right">
+                    <span>
+                      <mat-icon aria-hidden="false" class="mat_icon_color" aria-label="edit_icon" style="cursor: pointer">edit
+                      </mat-icon>
+                    </span>
+                    <span>
+                      <mat-icon aria-hidden="false" class="mat_icon_color" aria-label=" delete_icon"
+                        (click)="removeContact(details)" style="cursor: pointer">delete</mat-icon>
+                    </span>
+                  </div>
+                </mat-list-item>
+          </ng-template>
       </mat-list>
       <div class='choose-address-title'>Add upto 4 contacts <a style="justify-content:right">
           <span (click)="openDialog('contactList_Template')">Add Contact</span></a></div>
