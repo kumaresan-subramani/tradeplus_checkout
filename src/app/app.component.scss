@@ -298,3 +298,17 @@ mat-radio-group {
   }
 }
  
+
+input[type="date"]::-webkit-calendar-picker-indicator { 
+  opacity: 1;
+  display: block;
+  background: url('./../assets/icons/date.svg') no-repeat;
+  background-size: 15px 15px;
+  top: 3px;
+  left: 5px;
+  border-width: thin;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  justify-content: center;
+}
