@@ -18,11 +18,11 @@ export class AppComponent {
   public selectedAddress: any;
   public branchDetails: any = [
     {
-      location_name: "Riccarton",
-      location_address: "2-20 MANDEVILLE ST, Christchurch",
-      phone: "+2 9666 2800",
-    },
-  ];
+      location_name: 'Riccarton',
+      location_address: '2-20 MANDEVILLE ST, Christchurch',
+      phone: '+2 9666 2800'
+    }
+  ]
   addressData: AddressData[] = [
     {
       selected: true,
@@ -112,6 +112,7 @@ export class AppComponent {
       email: "aa@gmail.com",
       mobileNo: "1234567890",
       is_SMS: false,
+      isActive: true
     },
     {
       firstName: "bb",
@@ -119,6 +120,7 @@ export class AppComponent {
       email: "bb@gmail.com",
       mobileNo: "1234567890",
       is_SMS: false,
+      isActive: true
     },
   ];
 
@@ -139,22 +141,19 @@ export class AppComponent {
         templateName: temp,
         name: this.name,
         animal: this.animal,
+        contactData: [...this.contactDetails]
       },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log("The dialog was closed");
-      if (result.template == "addBranch_Template") {
-        this.branchDetails[0] = result.branch;
-      } else {
-        this.animal = result;
-        if (result) {
-          if (result.address && result.address != "") {
-            this.addressData.push({ selected: false, value: result.address });
-          }
-          if (result.contactList) {
-            this.contactDetails = result.contactList;
-          }
+      this.animal = result;
+      if (result) {
+        if (result.address && result.address != "") {
+          this.addressData.push({ selected: false, value: result.address });
+        }
+        if (result.contactList) {
+          this.contactDetails = [...result.contactList];
         }
       }
     });
@@ -173,7 +172,6 @@ export class AppComponent {
     this.selectedAddress = this.addressData.filter((item) => item.selected)[0];
   }
   removeContact(removeDetail: any) {
-    debugger;
     var index = this.contactDetails.indexOf(removeDetail);
     this.contactDetails.splice(index, 1);
   }
